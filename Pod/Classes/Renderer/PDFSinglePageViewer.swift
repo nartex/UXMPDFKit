@@ -22,14 +22,14 @@ open class PDFSinglePageViewer: UICollectionView {
     
     open var document: PDFDocument?
     
-    var scrollDirection: UICollectionViewScrollDirection {
+    open var scrollDirection: UICollectionViewScrollDirection {
         let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
         return flowLayout.scrollDirection
     }
     
     private static var flowLayout: UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
+        layout.scrollDirection = .vertical
         layout.sectionInset = UIEdgeInsets.zero
         layout.minimumLineSpacing = 0.0
         layout.minimumInteritemSpacing = 0.0
@@ -52,7 +52,7 @@ open class PDFSinglePageViewer: UICollectionView {
     }
     
     func setupCollectionView() {
-        isPagingEnabled = true
+        isPagingEnabled = false
         backgroundColor = UIColor.groupTableViewBackground
         showsHorizontalScrollIndicator = false
         register(PDFSinglePageCell.self, forCellWithReuseIdentifier: "ContentCell")
