@@ -153,10 +153,10 @@ extension PDFSinglePageViewer: UICollectionViewDelegateFlowLayout {
             // Find proper aspect ratio so that cell is full width
             let widthMultiplier: CGFloat
             let heightMultiplier: CGFloat
-            if contentViewSize.width == bounds.width {
+            if Int(round(contentViewSize.width)) == Int(round(bounds.width)) {
                 widthMultiplier = bounds.height / contentViewSize.height
                 heightMultiplier = 1
-            } else if contentViewSize.height == bounds.height {
+            } else if Int(round(contentViewSize.height)) == Int(round(bounds.height)) {
                 heightMultiplier = bounds.width / contentViewSize.width
                 widthMultiplier = 1
             } else {
